@@ -1,7 +1,68 @@
+@import url(./boostrap.css);
+@import url(./variables.css);
+@import url(./index.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.sample {
-    display: flex;
+* {
+  @apply box-border;
+}
+
+body {
+  @apply bg-[color:var(--white-color)];
+  font-family: var(--body-font-family);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-[color:var(--dark-color)];
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-[number:var(--font-weight-semibold)];
+  font-family: var(--title-font-family);
+}
+h1 {
+  @apply text-[length:var(--h1-font-size)] font-[number:var(--font-weight-bold)];
+}
+h2 {
+  @apply text-[length:var(--h2-font-size)] font-[number:var(--font-weight-bold)];
+}
+h3 {
+  @apply text-[length:var(--h3-font-size)];
+}
+h4 {
+  @apply text-[length:var(--h4-font-size)];
+}
+h5 {
+  @apply text-[length:var(--h5-font-size)];
+}
+h6 {
+  @apply text-[color:var(--primary-color)] text-[length:var(--h6-font-size)];
+}
+p {
+  @apply text-[color:var(--p-color)] text-[length:var(--p-font-size)] font-[number:var(--font-weight-normal)];
+}
+ul li {
+  @apply text-[color:var(--p-color)] text-[length:var(--p-font-size)] font-[number:var(--font-weight-normal)];
+}
+a,
+button {
+  @apply touch-manipulation transition-all duration-[0.3s];
+}
+a {
+  @apply inline-block text-[color:var(--primary-color)] no-underline hover:text-[color:var(--link-hover-color)];
+}
+b,
+strong {
+  @apply font-[number:var(--font-weight-bold)];
 }

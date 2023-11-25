@@ -6,7 +6,14 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'montse': ['Montserrat', 'sans-serif']
+      },
+      colors: {
+        'primary': '#13547a',
+      },
+    },
   },
   plugins: [],
 }

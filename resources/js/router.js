@@ -4,7 +4,7 @@ import AppVue from "./App.vue";
 const routes = [
   {
     path : "/",
-    component: AppVue
+    component: AppVue,
   },
 ]
 
