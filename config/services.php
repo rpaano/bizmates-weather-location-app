@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'foursquare_api' => [
+        'oauth' => env('FOURSQUARE_API_OAUTH'),
+        'url' => env('FOURSQUARE_API_URL'),
+        'version_url' => env('FOURSQUARE_API_URL_VERSION'),
+    ],
 ];
