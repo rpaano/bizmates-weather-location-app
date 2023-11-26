@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\VenueCategoryController;
 use App\Http\Controllers\Api\VenueController;
 use App\Http\Controllers\Api\WeatherCoordinateController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('venues', VenueController::class);
+
+Route::get('venue-categories', VenueCategoryController::class);
 
 Route::get('weather-coordinate', WeatherCoordinateController::class);
