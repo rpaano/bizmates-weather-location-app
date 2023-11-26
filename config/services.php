@@ -36,4 +36,12 @@ return [
         'url' => env('FOURSQUARE_API_URL'),
         'version_url' => env('FOURSQUARE_API_URL_VERSION'),
     ],
+
+    'openweather_api' => [
+        'app_id' => env('OPENWEATHER_API_APPID'),
+        'url' => env('OPENWEATHER_API_URL'),
+        'version_url' => env('OPENWEATHER_API_URL_VERSION'),
+        'cnt_limit' => env('OPENWEATHER_API_CNT_LIMIT', 5),
+        'units' => env('OPENWEATHER_API_UNITS', 'metric'),
+    ],
 ];
