@@ -8,30 +8,15 @@
             <SelectDropdown @inputCategory="(categoryValue) => categoryId = categoryValue" />
           </div>
           <Search 
-            @searchValue="showVenuesToggle(inputValue)"
+            @searchValue="showVenuesToggle"
             :searchLoading="searchLoadingBtn"
           />
         </div>
 
-        <transition name="fadeHeight" :css="false" @before-enter="beforeEnter" @enter="enter">
-          <div v-if="showVenues"  class="wrapper--ventue">
-            <div class="ventue">
-              dfsd
-            </div>
-            <div class="ventue">
-              dfsd
-            </div>
-            <div class="ventue">
-              dfsd
-            </div>
-            <div class="ventue">
-              dfsd
-            </div>
-            <div class="ventue">
-              dfsd
-            </div>
-          </div>
-        </transition>
+        <Venue 
+          :venue="venues" 
+          :showVenues="showVenues"
+        />
       </div>
     </section>
   </main>
@@ -41,24 +26,35 @@
 import { ref } from 'vue';
 import Search from './components/Search.vue';
 import SelectDropdown from './components/SelectDropdown.vue';
+import Venue from './components/Venues/Index.vue';
 
 const showVenues = ref(false)
-const categoryId = ref("")
+const categoryId = ref()
 const searchLoadingBtn = ref(false)
+const venues = ref()
 
-const showVenuesToggle = (inputValue) => {
+const showVenuesToggle = async (inputValue) => {
   searchLoadingBtn.value = true
-  showVenues.value = !showVenues.value
+  
+  await getVenues(inputValue)
 }
 
-const beforeEnter = (el) => {
-  el.style.height = '0';
+const getVenues = async (inputValue) => {
+  axios.get(`api/venues`,{
+    params: {
+      near: inputValue,
+      category_id: categoryId.value
+    }
+  })
+    .then((response) => {
+      venues.value = response.data.response.venues
+    })
+    .catch((err) => {
+      alert("Error! Kindly refresh.")
+    })
+
+    showVenues.value = !showVenues.value
+    searchLoadingBtn.value = false
 }
 
-const enter = (el, done) => {
-  el.offsetHeight; // Trigger reflow
-  el.style.transition = 'height 300ms';
-  el.style.height = el.scrollHeight + 'px';
-  done();
-}
 </script>

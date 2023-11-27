@@ -35,5 +35,7 @@
 </script>
 
 <style scoped>
-
+input.form-control:placeholder-shown + button.form-control {
+  @apply pointer-events-none;
+}
 </style>

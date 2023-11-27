@@ -65,5 +65,5 @@ button.form-control {
 }
 
 .button-loading:disabled:hover {
-  @apply bg-[var(--custom-btn-bg-color)];
+  @apply pointer-events-none;
 }
