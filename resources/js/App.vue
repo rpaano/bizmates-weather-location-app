@@ -4,7 +4,9 @@
       <div class="content--container">
         <div class="wrapper-info">
           <span class=" text-6xl font-bold leading-[1.2] font-montse text-white text-center">Discover Recommended<br />Cities</span>
-          <h6 class="text-primary font-semibold font-montse text-center mb-2">platform for creatives around the world</h6>
+          <div class="max-w-md w-full rounded-[50px]">
+            <SelectDropdown @inputCategory="(categoryValue) => categoryId = categoryValue" />
+          </div>
           <Search @searchValue="showVenuesToggle" />
         </div>
         <transition nname="fadeHeight" :css="false" @before-enter="beforeEnter" @enter="enter">
@@ -28,16 +30,16 @@
         </transition>
       </div>
     </section>
-
-    
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import Search from './components/Search.vue';
+import SelectDropdown from './components/SelectDropdown.vue';
 
 const showVenues = ref(false)
+const categoryId = ref("")
 
 const showVenuesToggle = (inputValue) => {
   showVenues.value = !showVenues.value
@@ -46,6 +48,7 @@ const showVenuesToggle = (inputValue) => {
 const beforeEnter = (el) => {
   el.style.height = '0';
 }
+
 const enter = (el, done) => {
   el.offsetHeight; // Trigger reflow
   el.style.transition = 'height 300ms';
