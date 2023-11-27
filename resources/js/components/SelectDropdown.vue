@@ -92,19 +92,7 @@ ul.dropdown-list > li li span {
 }
 
 .dropdown-container:has(input:disabled)::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  border: 4px solid #ccc;
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s linear infinite;
-  opacity: 1;
-  pointer-events: none;
+  @apply content-[''] absolute -translate-y-2/4 w-4 h-4 animate-spin opacity-100 pointer-events-none rounded-[50%] border-t-[#3498db] border-4 border-solid border-[#ccc] right-5 top-2/4;
 }
 
 @keyframes spin {
