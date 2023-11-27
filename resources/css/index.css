@@ -11,12 +11,11 @@ input.form-control {
 }
 
 button.form-control {
-  @apply bg-[color:var(--custom-btn-bg-color)] text-[color:var(--white-color)] text-[length:var(--btn-font-size)] md:text-[length:var(--p-font-size)] font-[number:var(--font-weight-semibold)] transition-all duration-[0.3s] rounded-[var(--border-radius-large)] -ml-px mb-0 border-[none] font-montse max-w-[150px] hover:border-transparent hover:bg-[color:var(--custom-btn-bg-hover-color)] cursor-pointer px-2 md:px-4 py-1 md:py-2 w-[30%] ml-2;
+  @apply bg-[color:var(--custom-btn-bg-color)] text-[color:var(--white-color)] text-[length:var(--btn-font-size)] md:text-[length:var(--p-font-size)] font-[number:var(--font-weight-semibold)] transition-all duration-[0.3s] rounded-[var(--border-radius-large)] mb-0 border-[none] font-montse max-w-[150px] hover:border-transparent hover:bg-[color:var(--custom-btn-bg-hover-color)] cursor-pointer px-2 md:px-4 py-1 md:py-2 w-[30%] ml-2;
 }
 
 .content--container {
   @apply gap-y-9 py-8 h-full;
-  
 }
 
 .wrapper-info {
