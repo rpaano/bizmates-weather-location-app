@@ -55,7 +55,7 @@
 
 <style scoped>
 ul.dropdown-list {
-  @apply hidden box-border bg-white absolute w-full z-10 mt-2 rounded-sm font-montse font-medium text-black overflow-x-hidden 
+  @apply hidden box-border bg-white absolute w-full z-10 mt-2 rounded-md border border-[--border-dropdown] font-montse font-medium text-black overflow-x-hidden 
   max-h-[calc(25dvh)] overflow-y-auto;
 }
 
@@ -64,7 +64,7 @@ ul.dropdown-list li {
 }
 
 ul.dropdown-list li:not(:last-child)::after {
-  @apply content-[""] block w-[calc(100%_-_0.5rem_-_0.5rem)] bg-[#e1e1e1] h-px px-2 text-center mx-2;
+  @apply content-[""] block w-[calc(100%_-_0.5rem_-_0.5rem)] bg-[--border-dropdown] h-px px-2 text-center mx-2;
 }
 
 ul.dropdown-list li span {
