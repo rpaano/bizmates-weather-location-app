@@ -6,12 +6,12 @@
   @apply bg-transparent flex items-center text-base font-normal leading-normal text-[#212529] text-center whitespace-nowrap px-3 py-1.5 rounded-tr-none rounded-br-none  rounded-md border-0 border-solid border-[#ced4da];
 }
 
-.form-control {
-  @apply shadow-none text-[color:var(--p-color)] text-xl relative flex-auto w-[1%] min-w-0 -ml-px mb-0 px-4 py-2 rounded-br-none rounded-t-none rounded-bl-none border-0 outline-none max-w-[772px];
+input.form-control {
+  @apply shadow-none text-[color:var(--p-color)] text-xl relative flex-auto w-[1%] min-w-0 -ml-px mb-0 px-2 md:px-4 py-2 rounded-br-none rounded-t-none rounded-bl-none border-0 outline-none max-w-[772px];
 }
 
 button.form-control {
-  @apply bg-[color:var(--custom-btn-bg-color)] text-[color:var(--white-color)] text-[length:var(--btn-font-size)] md:text-[length:var(--p-font-size)] font-[number:var(--font-weight-semibold)] transition-all duration-[0.3s] rounded-[var(--border-radius-large)] -ml-px mb-0 border-[none] font-montse max-w-[150px] hover:border-transparent hover:bg-[color:var(--custom-btn-bg-hover-color)] cursor-pointer;
+  @apply bg-[color:var(--custom-btn-bg-color)] text-[color:var(--white-color)] text-[length:var(--btn-font-size)] md:text-[length:var(--p-font-size)] font-[number:var(--font-weight-semibold)] transition-all duration-[0.3s] rounded-[var(--border-radius-large)] -ml-px mb-0 border-[none] font-montse max-w-[150px] hover:border-transparent hover:bg-[color:var(--custom-btn-bg-hover-color)] cursor-pointer px-2 md:px-4 py-1 md:py-2 w-[30%] ml-2;
 }
 
 .content--container {
@@ -20,7 +20,7 @@ button.form-control {
 }
 
 .wrapper-info {
-  @apply flex flex-col justify-center items-center max-w-[800px] w-fit mx-auto max-md:px-4;
+  @apply flex flex-col justify-center items-center max-w-[800px] w-fit mx-auto px-4;
 }
 
 
