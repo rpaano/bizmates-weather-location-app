@@ -135,11 +135,11 @@ ul.dropdown-list > li li span {
 }
 
 .overlay {
-  @apply flex fixed w-full h-full bg-[rgba(0,0,0,0.5)] py-5 md:py-0 md:items-center justify-center z-20 left-0 top-0 overflow-y-auto;
+  @apply flex fixed w-full h-full bg-[rgba(0,0,0,0.5)] py-5 md:py-10  justify-center z-20 left-0 top-0 overflow-y-auto;
 }
 
 .weather-container {
-  @apply relative bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)] text-center p-5 rounded-lg max-w-[calc(100vw_-_40px)] w-full overflow-y-auto;
+  @apply relative bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)] text-center p-5 rounded-lg max-w-[calc(100vw_-_40px)] md:max-w-3xl w-full  overflow-y-auto;
 }
 
 .weather-container--close {
