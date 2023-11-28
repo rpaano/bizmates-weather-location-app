@@ -4,7 +4,7 @@
         class="ventue" 
         v-for="venue in venues"
         :key="venue.id"
-        @click="emit('coordinates', {lat: venue.location.lat, lng: venue.location.lng})"
+        @click="emit('placeDetails', {id: venue.id, name: venue.name, lat: venue.location.lat, lng: venue.location.lng})"
       >
         <h5 class="ventue--name">{{ venue.name }}</h5>
         <div class="ventue--details" >
@@ -37,7 +37,7 @@
 
 <script setup>
   const { venues, showVenues } = defineProps(['venues', 'showVenues']);
-  const emit = defineEmits(['coordinates'])
+  const emit = defineEmits(['placeDetails'])
 </script>
 
 <style scoped>

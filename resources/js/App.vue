@@ -16,9 +16,15 @@
         <Venue 
           :venues="venues" 
           :showVenues="showVenues"
-          @coordinates="coordinates"
+          @placeDetails="placeDetails"
         />
       </div>
+      <Weather 
+        v-if="weathers" 
+        :weathers="weathers" 
+        :placeName="placeName" 
+        @weatherClose="weathers = null"
+      />
     </section>
   </main>
 </template>
@@ -28,16 +34,17 @@ import { ref } from 'vue';
 import Search from './components/Search.vue';
 import SelectDropdown from './components/SelectDropdown.vue';
 import Venue from './components/Venues/Index.vue';
+import Weather from './components/Weather.vue';
 
 const showVenues = ref(false)
 const categoryId = ref()
 const searchLoadingBtn = ref(false)
 const venues = ref()
-const weather = ref()
+const weathers = ref()
+const placeName = ref()
 
 const showVenuesToggle = async (inputValue) => {
   searchLoadingBtn.value = true
-  
   await getVenues(inputValue)
 }
 
@@ -48,7 +55,7 @@ const getVenues = async (inputValue) => {
       category_id: categoryId.value
     }
   }).then((response) => {
-      showVenues.value = !showVenues.value
+      showVenues.value = true
       searchLoadingBtn.value = false
       venues.value = response.data.data
     })
@@ -57,8 +64,9 @@ const getVenues = async (inputValue) => {
     })
 }
 
-const coordinates = async ({lat, lng}) => {
+const placeDetails = async ({name, lat, lng}) => {
   await getWeather(lat, lng) //I did this to easily transfer to a new file
+  placeName.value = name
 }
 
 const getWeather = async (lat, lng) => {
@@ -68,7 +76,7 @@ const getWeather = async (lat, lng) => {
       lon: lng,
     }
   }).then((response) => {
-      weather.value = response.data.data
+    weathers.value = response.data.data
     })
     .catch((err) => {
       alert("Error! Kindly refresh.")

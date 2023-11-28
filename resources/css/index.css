@@ -133,3 +133,52 @@ ul.dropdown-list > li li span {
   0% { transform: translateY(-50%) rotate(0deg); }
   100% { transform: translateY(-50%) rotate(360deg); }
 }
+
+.overlay {
+  @apply flex fixed w-full h-full bg-[rgba(0,0,0,0.5)] items-center justify-center z-20 left-0 top-0;
+}
+
+.weather-container {
+  @apply relative bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)] text-center p-5 rounded-lg max-w-[calc(100vw_-_40px)] w-full;
+}
+
+.weather-container--close {
+  @apply absolute right-10 text-4xl;
+}
+
+.weather-form {
+  @apply flex flex-col gap-2.5;
+}
+.weather-form label {
+  @apply text-lg;
+}
+.weather-form input {
+  @apply text-base border rounded p-2 border-solid border-[#ccc];
+}
+.weather-form button {
+  @apply bg-[#007bff] text-white rounded cursor-pointer p-2.5 border-[none];
+}
+
+.weather-list {
+  @apply flex flex-wrap justify-center w-full gap-x-6 gap-y-7 mt-2 p-3;
+}
+
+.weather-content {
+  @apply flex flex-col min-w-[16rem] max-w-md w-fit;
+}
+
+.weather-content-info {
+  @apply flex w-full;
+}
+
+.weather-content-title {
+  @apply w-1/3 text-left font-medium;
+}
+
+.weather-content-title span{
+  @apply font-bold;
+}
+
+.weather-content-detail {
+  @apply w-2/3;
+}
