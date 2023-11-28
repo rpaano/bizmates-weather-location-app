@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VenueRequest;
+use App\Http\Resources\VenueResource;
 use Illuminate\Http\Request;
 use App\Http\Services\FourSquareApi;
 
@@ -26,6 +27,6 @@ class VenueController extends Controller
             ->limit($request->limit)
             ->send('get', 'venues/search');
         
-        return collect($response->json());
+        return VenueResource::collection(collect($response->json()['response']['venues']));
     }
 }

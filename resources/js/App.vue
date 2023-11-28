@@ -14,8 +14,9 @@
         </div>
 
         <Venue 
-          :venue="venues" 
+          :venues="venues" 
           :showVenues="showVenues"
+          @coordinates="coordinates"
         />
       </div>
     </section>
@@ -32,6 +33,7 @@ const showVenues = ref(false)
 const categoryId = ref()
 const searchLoadingBtn = ref(false)
 const venues = ref()
+const weather = ref()
 
 const showVenuesToggle = async (inputValue) => {
   searchLoadingBtn.value = true
@@ -40,21 +42,36 @@ const showVenuesToggle = async (inputValue) => {
 }
 
 const getVenues = async (inputValue) => {
-  axios.get(`api/venues`,{
+  await axios.get(`api/venues`,{
     params: {
       near: inputValue,
       category_id: categoryId.value
     }
-  })
-    .then((response) => {
-      venues.value = response.data.response.venues
+  }).then((response) => {
+      showVenues.value = !showVenues.value
+      searchLoadingBtn.value = false
+      venues.value = response.data.data
     })
     .catch((err) => {
       alert("Error! Kindly refresh.")
     })
-
-    showVenues.value = !showVenues.value
-    searchLoadingBtn.value = false
 }
 
+const coordinates = async ({lat, lng}) => {
+  await getWeather(lat, lng) //I did this to easily transfer to a new file
+}
+
+const getWeather = async (lat, lng) => {
+  await axios.get(`api/weather-coordinate`,{
+    params: {
+      lat,
+      lon: lng,
+    }
+  }).then((response) => {
+      weather.value = response.data.data
+    })
+    .catch((err) => {
+      alert("Error! Kindly refresh.")
+    })
+}
 </script>
